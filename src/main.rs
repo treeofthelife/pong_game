@@ -14,8 +14,8 @@ async fn main() {
     let mut ball_y = 200.0;
 
     // ボール速度
-    let mut vel_x = -1.0;
-    let mut vel_y = 1.0;
+    let mut vel_x = -2.0;
+    let mut vel_y = 2.0;
 
     loop {
         clear_background(BLACK);
@@ -43,16 +43,16 @@ async fn main() {
         ball_y += vel_y;
 
         // 壁バウンド
-        if ball_y < 0.0 || ball_y > screen_height() {
+        if ball_y < 5.0 || ( ball_y + 5.0 ) > screen_height() {
             vel_y *= -1.0;
         }
 
         // ラケット衝突
-        if ball_x < 40.0 && ball_y > player_y && ball_y < player_y + 100.0 {
+        if ball_x < 45.0 && ball_y > player_y && ball_y < player_y + 100.0 {
           vel_x *= -1.0;
         }
 
-        if ball_x > screen_width() - 40.0 && ball_y > cpu_y && ball_y < cpu_y + 100.0 {
+        if ball_x > screen_width() - 45.0 && ball_y > cpu_y && ball_y < cpu_y + 100.0 {
           vel_x *= -1.0;
         }
 
